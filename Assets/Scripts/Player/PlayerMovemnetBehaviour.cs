@@ -21,6 +21,10 @@ public class PlayerMovemnetBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(Input.GetMouseButton(0))
+        {
+            transform.position += transform.forward * Time.deltaTime * _moveSpeed;
+        }
         //The direction the player is moving in is set to the input values for the horizontal and vertical axis
         Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //The move direction is scaled by the movement speed to get velocity
