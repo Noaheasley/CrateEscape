@@ -8,12 +8,22 @@ public class HazardBehaviour : MonoBehaviour
     [SerializeField]
     private float _damage;
 
-    public float XMin;
-    public float XMax;
+    [Tooltip("How Fast the trap will travel.")]
+    [SerializeField]
+    private float _speed;
 
-    public float Speed;
+    [Tooltip("How long till the trap comes out.")]
+    [SerializeField]
+    private float _time = 10.0f;
 
-    public float StartCos = 0;
+    [Tooltip("Countdown for the timer to bring out the trap.")]
+    [SerializeField]
+    private float _countDownOut = 6.0f;
+
+    [Tooltip("Countdown for the timer to pull in the trap.")]
+    [SerializeField]
+    private float _countDownIn = 6.0f;
+
     private void OnCollisionEnter(Collision collision)
     {
         //Get a reference to the attached health script
@@ -25,7 +35,24 @@ public class HazardBehaviour : MonoBehaviour
     }
     void Update()
     {
-        StartCos += Time.deltaTime;
-        transform.position += new Vector3(Mathf.Cos(StartCos), transform.position.y, transform.position.z) * Speed * Time.deltaTime;
+        
+        _countDownOut -= Time.deltaTime;
+        transform.position += transform.forward * Time.deltaTime * _speed;
+        if(_countDownOut <= 0.0f)
+        {
+            transform.position -= transform.forward * Time.deltaTime * _speed;
+            timerEnded();
+        }
+    }
+
+    void timerEnded()
+    {
+        _countDownIn -= Time.deltaTime;
+        transform.position -= transform.forward * Time.deltaTime * _speed;
+        if(_countDownIn <= 0.0f)
+        {
+            _countDownOut = _time;
+            _countDownIn = _time;
+        }
     }
 }
