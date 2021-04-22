@@ -1,7 +1,7 @@
 # How to launch the game
 
 click this link and it shall take you to the site where my game is in
-https://noaheasley.github.io/CrossPlatform_Assessment/Player/
+https://noaheasley.github.io/CrossPlatform_Assessment/GamePlayer/
  
 # How to play my game
 
