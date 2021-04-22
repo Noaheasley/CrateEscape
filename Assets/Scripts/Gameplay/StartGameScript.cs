@@ -9,6 +9,6 @@ public class StartGameScript : MonoBehaviour
     //loads up the game
     public void NewGame()
     {
-        SceneManager.LoadScene(newGameScene);
+        SceneManager.LoadScene(1);
     }
 }
