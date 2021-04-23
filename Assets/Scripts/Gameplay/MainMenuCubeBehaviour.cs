@@ -16,6 +16,7 @@ public class MainMenuCubeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //rotates the object
         transform.Rotate(x,y,z);
     }
 }

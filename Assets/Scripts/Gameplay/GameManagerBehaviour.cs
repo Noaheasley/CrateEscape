@@ -45,12 +45,12 @@ public class GameManagerBehaviour : MonoBehaviour
     {
         
     }
-
+    //restarts the game and loads scene 1
     public void RestartGame()
     {
         SceneManager.LoadScene(1);
     }
-
+    //quits the app
     public void QuitGame()
     {
         Application.Quit();
@@ -58,11 +58,13 @@ public class GameManagerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if the player dies it'll display the death screen
         if (_playerHealth.Health <= 0)
         {
             _isPlayerDead = true;
             _deathScreen.SetActive(_isPlayerDead);
         }
+        //if the enemy dies it'll display the victory screen
         if (_enemyHealth.Health <= 0)
         {
             _gameOver = true;

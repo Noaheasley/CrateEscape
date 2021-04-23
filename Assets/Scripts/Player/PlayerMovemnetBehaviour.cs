@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,8 +21,10 @@ public class PlayerMovemnetBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //if mouse1 is press the player will move where it is facing
         if(Input.GetMouseButton(0))
         {
+            //player moves in the direction it's facing
             transform.position += transform.forward * Time.deltaTime * _moveSpeed;
         }
         //The direction the player is moving in is set to the input values for the horizontal and vertical axis

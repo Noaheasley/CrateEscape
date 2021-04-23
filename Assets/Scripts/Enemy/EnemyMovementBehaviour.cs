@@ -41,7 +41,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
         //If a target hasn't been set return
         if (!_target)
             return;
-
+        //Sets target to be the enemy's destination 
         _agent.SetDestination(_target.transform.position);
     }
 }
